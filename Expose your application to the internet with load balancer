@@ -1,0 +1,67 @@
+Expose the application to the internet using kubernetes service. A kubernetes service is a load balancer that directs traffic from internet to the kubernetes pods. 
+A load balance service has a public and static IP address. Static Ip is importance becuase your pods and their IP addresses change frquently 
+but your service ip needs to remain same. 
+Example of service.yaml file
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-service
+  namespace: development
+spec:
+  selector:
+    app: pod-info
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: LoadBalancer
+
+Here 
+
+We are going to create a service named demo-service in the development namespace. Next part is the important, we have the selector map and we're telling the service 
+to send traffic to any pods with the label app pod-info. in the port sequence, we are setting the servies port to 80. That's the default so you don't have to type in 
+the port number in the url but the service is directign traffic to port 3000 in our container. Finally we are specifying that the service type is LOAD Balancer. This is 
+one of three type of kubernetes services. The other two are node port and cluster IP. Let's create this service. 
+
+
+Deployment.yaml 
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-info-deployment
+  namespace: development
+  labels:
+    app: pod-info
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod-info
+  template:
+    metadata:
+      labels:
+        app: pod-info
+    spec:
+      containers:
+      - name: pod-info-container
+        image: kimschles/pod-info-app:latest
+        ports:
+        - containerPort: 3000
+        env:
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+
+In this file, we made sure any pods created by this deployment have that label, if these thing don't match your service won't be able to direct traffic to your pods. 
+
+
