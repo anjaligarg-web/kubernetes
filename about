@@ -1,0 +1,19 @@
+Helm, the package manager of Kubernetes was released in February 2016.
+Kubernetes is a portable, extensible, and open-source platform for managing containerized workloads and services.
+It facilitates declarative configuration and automation.
+Kubernetes provides a framework for running distributed systems strongly
+Containers help to bundle and run applications. Manage Containers to avoid downtime.
+Benefits of Kubernetes : Agile application creation and deployment, Continuous development, integration, and deployment, Loosely coupled, 
+distributed, elastic, and liberated micro-services, Cloud and OS distribution portability , Resource isolation and utilization
+
+Learning Objective:
+Cluster Architecture
+Workload and Serivces
+Load Balancing and Scheduling
+Storage Handling
+Configuration and Security
+Troubleshooting Clusters
+Azure Kubernetes Service
+
+
+
