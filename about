@@ -6,7 +6,17 @@ Containers help to bundle and run applications. Manage Containers to avoid downt
 Benefits of Kubernetes : Agile application creation and deployment, Continuous development, integration, and deployment, Loosely coupled, 
 distributed, elastic, and liberated micro-services, Cloud and OS distribution portability , Resource isolation and utilization
 
-Learning Objective:
+Features: Storage, Secure Configuration Management, Auto Scalling, Automated Rollouts and ROllbacks, Service Discovery and Load Balancing
+
+A container is a standard unit of software that aids in the packaging of both 
+application source code and dependencies
+
+Container orchestration automates and simplifies the provisioning, deployment, 
+and management of containerized applications.
+
+Docker containers run in four modes: Physical Computer, Virtual Machine, Bare Metal, Clouds
+
+COurse Details:
 Cluster Architecture
 Workload and Serivces
 Load Balancing and Scheduling
@@ -16,4 +26,15 @@ Troubleshooting Clusters
 Azure Kubernetes Service
 
 
+Responsibility: 
+The goal is to understand how the cluster is configured and how Pods 
+are created. Your team is looking for someone who can deploy 
+applications, maintain their status, and provide all cluster details.
+
+Learning Objecives:
+Explain the working of Container Orchestration in Kubernetes
+Describe the functions of Etcd, Controller, Scheduler, and Kubelet
+Differentiate kube-proxy, Pods, ReplicaSet, and Deployment
+Classify common Deployment use cases
+Summarize an overview of Containers and Policies
 
